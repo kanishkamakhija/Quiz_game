@@ -102,8 +102,8 @@ solution = [[
     'readability',
     'portable',
     'interpreted',
-    'Guido van Rossum',
-    'Netherlands',
+    'guido van rossum',
+    'netherlands',
     'source',
     'indenting',
     'dynamic',
@@ -112,18 +112,18 @@ solution = [[
     'libraries',
     'extended',
     ], [
-    'Vagrant',
+    'vagrant',
     'reproducible',
     'portable',
     'productivity',
     'flexibility',
-    'VirtualBox',
+    'virtualbox',
     'VMware',
     'AWS',
-    'Chef',
-    'Puppet',
+    'chef',
+    'puppet',
     'tools',
-    'Vagrantfile',
+    'vagrantfile',
     'vagrant up',
     'installed',
     'configured',
@@ -145,7 +145,7 @@ def input_level():
     elif level == 3:
         return 3
     else:
-        print 'Invalid level selection!'
+        print ('Invalid level selection!')
         return input_level()
 
 
@@ -161,7 +161,7 @@ def start_playing(level):
     credit = 0
     while blank <= len(solution[level - 1]):
         string = Template(levels[level - 1]).substitute(substitution)
-        print string
+        print (string)
         answer = raw_input('\nSubmit Your Answer For'
                            ' blank' + str(blank) + ': ')
         while answer != solution[level - 1][blank - 1]:
@@ -170,10 +170,10 @@ def start_playing(level):
                           ' blank' + str(blank) + ': ')
         b = 'blank' + str(blank)
         substitution[b] = answer
-        print '\n Correct.'
+        print ('\n Correct.')
         blank += 1
         credit += 1
-    if credit == length:
+    if credit == len(solution[level - 1]):
         return 1
     return 0
 
@@ -186,15 +186,15 @@ def main():
         loose and also promts for playing again
         or quiting.
     """
-    print 'Welcome To The Quiz Game!'
+    print ('Welcome To The Quiz Game!')
     level = input_level()
 
     if level <= 3:
         result = start_playing(level)
         if result == 1:
-            print 'You Win!'
+            print ('You Win!')
         else:
-            print 'You Loose!'
+            print ('You Loose!')
         play_again = raw_input('Do you want to play again Y/N? : ')
         if play_again == 'Y':
             main()
